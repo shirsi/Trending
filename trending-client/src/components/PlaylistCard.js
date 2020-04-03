@@ -20,7 +20,7 @@ class PlaylistCard extends React.Component {
    }
 
    handleCreate = async (createData) => {
-       let response = await fetch ('http://localhost:3000/posts', {
+       let response = await fetch ('http://localhost:3000/playlists', {
            body: JSON.stringify(createData),
            method: 'POST',
            headers: {
@@ -37,13 +37,31 @@ class PlaylistCard extends React.Component {
   render () {
     return (
         <div className="">
+        {this.props.playlists}.map
             <h1>{this.state.playlists.title}</h1>
             <h3>{this.state.playlists.num_songs}</h3>
-            <h3>{this.state.playlists.duration}</h3>
             <h4>{this.state.playlists.user_name}</h4>
         </div>
     )
   }
+  <style>
+  h1 {
+      text-align: left,
+      font-size: 15px,
+      font-weight: bold
+      display: inline-block
+  }
+  h3 {
+      display: block,
+      text-align: left,
+      font-size: 12px
+  }
+  h4 {
+      text-align: right,
+      font-size: 10px,
+      display: inline-block
+  }
+  </style>
 }
 
 // =============================
